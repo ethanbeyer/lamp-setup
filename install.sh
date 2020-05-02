@@ -65,7 +65,10 @@ printf "\n${GREEN}Done!${NC}\n\n\n"
 # Apache
 # https://github.com/h5bp/server-configs-apache#directly
 printf "\n${GREEN}Configuring Apache...!${NC}\n\n\n"
+sudo a2enmod setenvif headers deflate filter expires rewrite include
 sudo a2enconf php7.4-fpm # For Apache only
+sudo services apache2 restart
+
 sudo apache2ctl stop
 git clone https://github.com/h5bp/server-configs-apache.git /tmp/h5bp-apache
 cd /usr/local
@@ -76,13 +79,13 @@ sudo apache2ctl start
 cd
 
 # MySql
-printf "\n${GREEN}Configuring MySQL...${NC}\n\n\n"
-sudo mysql_secure_installation
-sudo phpenmod mbstring
-sudo systemctl restart apache2
+# printf "\n${GREEN}Configuring MySQL...${NC}\n\n\n"
+# sudo mysql_secure_installation
+# sudo phpenmod mbstring
+# sudo systemctl restart apache2
 
-mysql -u root -p
-SELECT user,authentication_string,plugin,host FROM mysql.user;
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'testing_pass';
-exit;
+# mysql -u root -p
+# SELECT user,authentication_string,plugin,host FROM mysql.user;
+# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'testing_pass';
+# exit;
 
