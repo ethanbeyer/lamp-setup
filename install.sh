@@ -4,9 +4,12 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
+chmod +x config/*.sh
+
 # ============= #
 # installations #
 # ============= #
+
 printf "\n${GREEN}Adding PHP Repo to apt...${NC}\n"
 sudo add-apt-repository ppa:ondrej/php
 
@@ -52,40 +55,3 @@ wget \
 zip \
 
 printf "\n${GREEN}Done!${NC}\n\n\n"
-
-
-
-
-
-
-# ============== #
-# configurations #
-# ============== #
-
-# Apache
-# https://github.com/h5bp/server-configs-apache#directly
-printf "\n${GREEN}Configuring Apache...!${NC}\n\n\n"
-sudo a2enmod setenvif headers deflate filter expires rewrite include
-sudo a2enconf php7.4-fpm # For Apache only
-sudo services apache2 restart
-
-sudo apache2ctl stop
-git clone https://github.com/h5bp/server-configs-apache.git /tmp/h5bp-apache
-cd /usr/local
-cp -r apache2 apache2-previous
-cp -r /tmp/h5bp-apache/* apache2
-# install-specific edits
-sudo apache2ctl start
-cd
-
-# MySql
-# printf "\n${GREEN}Configuring MySQL...${NC}\n\n\n"
-# sudo mysql_secure_installation
-# sudo phpenmod mbstring
-# sudo systemctl restart apache2
-
-# mysql -u root -p
-# SELECT user,authentication_string,plugin,host FROM mysql.user;
-# ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'testing_pass';
-# exit;
-
