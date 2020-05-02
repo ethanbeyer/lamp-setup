@@ -17,9 +17,10 @@ sudo apache2ctl stop
 # config apache with h5bp's repo
 # https://github.com/h5bp/server-configs-apache#directly
 git clone https://github.com/h5bp/server-configs-apache.git ~/setup/h5bp-apache
-cd /usr/local
-cp -r apache2 apache2-previous
-cp -r ~/setup/h5bp-apache/* apache2
+
+mkdir -p ~/configs/apache2
+cp -r ~/setup/h5bp-apache/* ~/configs/apache2
+sudo ln -s ~/configs/apache2 /usr/local/apache2
 
 # install-specific edits
 # not sure what these are, yet
