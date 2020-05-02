@@ -16,9 +16,9 @@ sudo a2enconf php7.4-fpm # For Apache only
 sudo services apache2 restart
 
 sudo apache2ctl stop
-git clone https://github.com/h5bp/server-configs-apache.git /tmp/h5bp-apache
+git clone https://github.com/h5bp/server-configs-apache.git ~/setup/h5bp-apache
 cd /usr/local
 cp -r apache2 apache2-previous
-cp -r /tmp/h5bp-apache/* apache2
+cp -r ~/setup/h5bp-apache/* apache2
 # install-specific edits
 sudo apache2ctl start

@@ -4,9 +4,9 @@ Run these scripts in order to set up the lamp stack on AWS Lightsail.
 
 ```sh
 sudo apt install git
-git clone https://github.com/ethanbeyer/lamp-setup.git
-chmod +x lamp-setup/install.sh
-./lamp-setup/install.sh
+git clone https://github.com/ethanbeyer/lamp-setup.git ~/setup/lamp
+chmod +x setup/lamp/install.sh
+./setup/lamp/install.sh
 ```
 
 ### Helpful Links
