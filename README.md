@@ -7,6 +7,7 @@ After SSHing into the box, run these commands from the home directory.
 ```sh
 sudo apt install git
 git clone https://github.com/ethanbeyer/lamp-setup.git ~/setup/lamp
+
 ./setup/lamp/install.sh
 
 ```
