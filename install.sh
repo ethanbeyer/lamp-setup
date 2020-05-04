@@ -10,7 +10,8 @@ NC='\033[0m' # No Color
 
 printf "\n${GREEN}Adding PHP Repo to apt...${NC}\n"
 sleep 3
-sudo add-apt-repository ppa:ondrej/php ppa:ondrej/apache2
+sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/apache2
 
 printf "\n${GREEN}Updating apt data...${NC}\n"
 sleep 3
