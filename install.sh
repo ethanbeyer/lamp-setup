@@ -4,28 +4,32 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
 
-chmod +x ~/setup/lamp/config/*.sh
-
 # ============= #
 # installations #
 # ============= #
 
 printf "\n${GREEN}Adding PHP Repo to apt...${NC}\n"
+sleep 3
 sudo add-apt-repository ppa:ondrej/php
 
 printf "\n${GREEN}Updating apt data...${NC}\n"
+sleep 3
 sudo apt update
 
 printf "\n${GREEN}Upgrading apt packages...${NC}\n"
+sleep 3
 sudo apt -y upgrade
 
 printf "\n${GREEN}Doing Full Upgrade to apt packages...${NC}\n"
+sleep 3
 sudo apt full-upgrade
 
 printf "\n${GREEN}Removing unneeded apt packages...${NC}\n"
+sleep 3
 sudo apt autoremove
 
 printf "\n${GREEN}Installing LAMP stack...${NC}\n"
+sleep 5
 sudo apt install -y \
   apache2 \
   curl \

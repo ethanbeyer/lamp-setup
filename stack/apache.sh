@@ -26,3 +26,4 @@ sudo ln -s ~/configs/apache2 /usr/local/apache2
 # not sure what these are, yet
 
 sudo apache2ctl start
+
