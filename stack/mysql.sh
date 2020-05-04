@@ -9,6 +9,7 @@ MYSQL_INIT_FILE=$MYSQL_CONFIG_DIR/reset.sql
 MYSQL_ROOT_PASS=$1
 MYSQL_SITE_USER=$2
 MYSQL_SITE_PASS=$3
+HANDY_INFO=~/.handy-info
 
 # ===== #
 # MySQL #
@@ -27,19 +28,23 @@ echo "CREATE USER '${MYSQL_SITE_USER}'@'localhost' IDENTIFIED BY '${MYSQL_SITE_P
 echo "GRANT ALL PRIVILEGES ON * . * TO '${MYSQL_SITE_USER}'@'localhost';" >> $MYSQL_INIT_FILE
 echo "FLUSH PRIVILEGES;" >> $MYSQL_INIT_FILE
 
+echo "# MySQL" >> $HANDY_INFO
+echo "root: ${MYSQL_ROOT_PASS}" >> $HANDY_INFO
+echo "${MYSQL_SITE_USER}: ${MYSQL_SITE_PASS}" >> $HANDY_INFO
+
 printf "\n${GREEN}Starting Safe Mode MySQL...${NC}\n\n\n"
 sudo mysqld_safe --skip-grant-tables --init-file=$MYSQL_INIT_FILE &
 
 # confirm it works
 printf "\n${GREEN}Attempting to log in to MySQL...${NC}\n\n\n"
-mysql -u root -p
+sudo mysql -u $2 -p
 > quit;
 
 printf "\n${GREEN}Stopping safe mode MySQL...${NC}\n\n\n"
 sudo service mysql stop
 
-# printf "\n${GREEN}Secure Installation of MySQL...${NC}\n\n\n"
-# sudo mysql_secure_installation
+printf "\n${GREEN}Secure Installation of MySQL...${NC}\n\n\n"
+sudo mysql_secure_installation
 
 printf "\n${GREEN}Starting MySQL...${NC}\n\n\n"
 sudo service mysql start

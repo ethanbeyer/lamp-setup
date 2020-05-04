@@ -60,4 +60,4 @@ sudo apt install -y \
 
 printf "\n${GREEN}Done!${NC}\n\n\n"
 
-sudo reboot
+touch ~/.handy-info
