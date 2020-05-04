@@ -28,7 +28,7 @@ echo "GRANT ALL PRIVILEGES ON * . * TO '${MYSQL_SITE_USER}'@'localhost';" >> $MY
 echo "FLUSH PRIVILEGES;" >> $MYSQL_INIT_FILE
 
 printf "\n${GREEN}Starting Safe Mode MySQL...${NC}\n\n\n"
-sudo mysqld_safe --init-file=$MYSQL_INIT_FILE &
+sudo mysqld_safe --skip-grant-tables --init-file=$MYSQL_INIT_FILE &
 
 # confirm it works
 printf "\n${GREEN}Attempting to log in to MySQL...${NC}\n\n\n"
@@ -44,5 +44,5 @@ sudo service mysql stop
 printf "\n${GREEN}Starting MySQL...${NC}\n\n\n"
 sudo service mysql start
 
-printf "\n${GREEN}Removing MySQL Init file with plaintext passwords...${NC}\n\n\n"
-rm $MYSQL_INIT_FILE
+# printf "\n${GREEN}Removing MySQL Init file with plaintext passwords...${NC}\n\n\n"
+# rm $MYSQL_INIT_FILE
