@@ -25,5 +25,20 @@ sudo ln -s ~/configs/apache2 /usr/local/apache2
 # install-specific edits
 # not sure what these are, yet
 
+# Manage sites
+# cd ~/configs/apache2/vhosts
+
+#     Creating a new site
+#     cp templates/example.com.conf .actual-hostname.conf
+#     sed -i 's/example.com/actual-hostname/g' .actual-hostname.conf
+
+#     Enabling a site
+#     mv .actual-hostname.conf actual-hostname.conf
+
+#     Disabling a site
+#     mv actual-hostname.conf .actual-hostname.conf
+
+# apache2ctl reload
+
 sudo apache2ctl start
 

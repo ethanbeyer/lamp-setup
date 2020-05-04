@@ -59,3 +59,5 @@ sudo apt install -y \
   zip \
 
 printf "\n${GREEN}Done!${NC}\n\n\n"
+
+sudo reboot
