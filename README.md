@@ -11,30 +11,31 @@ git clone https://github.com/ethanbeyer/lamp-setup.git ~/setup/lamp
 
 ```
 
-### Helpful Links
-
-- https://itsfoss.com/apt-vs-apt-get-difference/
-
-# Manage VHosts sites
+# Apache Configuration
 
 `cd ~/configs/apache2/vhosts`
 
-## Creating a new site
-
-```sh
-cp templates/example.com.conf .actual-hostname.conf
-sed -i 's/example.com/actual-hostname/g' .actual-hostname.conf
-```
-
-## Enabling a site
-
-```sh
-mv .actual-hostname.conf actual-hostname.conf
-```
-
-## Disabling a site
-```sh
-mv actual-hostname.conf .actual-hostname.conf
-```
-
 After any of these operations, run `sudo apache2ctl reload`
+
+1. Creating a new site
+
+```sh
+cp templates/example.com.conf .domain.com.conf
+sed -i 's/example.com/domain.com/g' .domain.com.conf
+```
+
+2. Enabling a site
+
+```sh
+mv .domain.com.conf domain.com.conf
+```
+
+3. Disabling a site
+
+```sh
+mv domain.com.conf .domain.com.conf
+```
+
+### Helpful Links
+
+- https://itsfoss.com/apt-vs-apt-get-difference/
