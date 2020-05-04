@@ -10,8 +10,8 @@ NC='\033[0m' # No Color
 
 # Apache
 printf "\n${GREEN}Configuring Apache...!${NC}\n\n\n"
-sudo a2enmod setenvif headers deflate filter expires rewrite include
-sudo a2enconf php7.4-fpm 
+sudo a2enmod setenvif headers deflate filter expires rewrite include proxy_fcgi
+sudo a2enconf php7.4-fpm
 sudo apache2ctl stop
 
 # config apache with h5bp's repo
