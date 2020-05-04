@@ -10,12 +10,13 @@ NC='\033[0m' # No Color
 
 printf "\n${GREEN}Adding PHP Repo to apt...${NC}\n"
 sleep 3
-sudo add-apt-repository ppa:ondrej/php
-sudo add-apt-repository ppa:ondrej/apache2
+sudo add-apt-repository -y ppa:ondrej/php
+sudo add-apt-repository -y ppa:ondrej/apache2
+sudo add-apt-repository -y ppa:certbot/certbot
 
 printf "\n${GREEN}Updating apt data...${NC}\n"
 sleep 3
-sudo apt update
+sudo apt -y update
 
 printf "\n${GREEN}Upgrading apt packages...${NC}\n"
 sleep 3
@@ -33,6 +34,7 @@ printf "\n${GREEN}Installing LAMP stack...${NC}\n"
 sleep 5
 sudo apt install -y \
   apache2 \
+  certbot \
   curl \
   mysql-client \
   mysql-server \
@@ -53,6 +55,7 @@ sudo apt install -y \
   php7.4-xml \
   php7.4-zip \
   phpmyadmin \
+  python-certbot-apache \
   screen \
   software-properties-common \
   unzip \

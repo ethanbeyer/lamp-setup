@@ -43,11 +43,11 @@ sudo mysql -u $2 -p
 printf "\n${GREEN}Stopping safe mode MySQL...${NC}\n\n\n"
 sudo service mysql stop
 
+printf "\n${GREEN}Removing MySQL Init file with plaintext passwords...${NC}\n\n\n"
+rm $MYSQL_INIT_FILE
+
 printf "\n${GREEN}Secure Installation of MySQL...${NC}\n\n\n"
 sudo mysql_secure_installation
 
 printf "\n${GREEN}Starting MySQL...${NC}\n\n\n"
 sudo service mysql start
-
-# printf "\n${GREEN}Removing MySQL Init file with plaintext passwords...${NC}\n\n\n"
-# rm $MYSQL_INIT_FILE
