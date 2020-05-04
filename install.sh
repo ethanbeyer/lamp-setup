@@ -54,7 +54,6 @@ sudo apt install -y \
   php7.4-readline \
   php7.4-xml \
   php7.4-zip \
-  phpmyadmin \
   python-certbot-apache \
   screen \
   software-properties-common \
