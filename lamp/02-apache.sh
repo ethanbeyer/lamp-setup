@@ -9,7 +9,7 @@ NC='\033[0m' # No Color
 # ====== #
 
 printf "\n${GREEN}Configuring Apache...${NC}\n\n\n"
-sudo service apache2 stop
+sudo apache2ctl stop
 
 # we need these mods in order for a lot of things to function
 sudo a2enmod \
@@ -30,22 +30,15 @@ sudo a2disconf \
     security \
     serve-cgi-bin
 
+sudo apache2ctl start
+
 # back up the current apache2 configuration
 sudo mv /etc/apache2 /etc/apache2.bak
 
 # link the html5-boilerplate configs to the old location
 sudo ln -s ~/setup/h5bp-apache2 /etc/apache2
 
-# set the main apache config file
+# test the apache config file
 sudo apache2 -t -f /etc/apache2/httpd.conf
 
-
-
-# printf "\n${GREEN}Symlinking...${NC}\n\n\n"
-# sudo ln -s ~/configs/apache2 /usr/local/apache2
-
-# # install-specific edits
-
-# printf "\n${GREEN}Starting Apache...${NC}\n\n\n"
-# sudo apache2 -t -f /usr/local/apache2/httpd.conf
-# sudo apache2ctl reload
+sudo apache2ctl reload -f /etc/apache2/httpd.conf
