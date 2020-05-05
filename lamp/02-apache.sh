@@ -30,8 +30,6 @@ sudo a2disconf \
     security \
     serve-cgi-bin
 
-sudo apache2ctl start
-
 # back up the current apache2 configuration
 sudo mv /etc/apache2 /etc/apache2.bak
 
@@ -39,6 +37,5 @@ sudo mv /etc/apache2 /etc/apache2.bak
 sudo ln -s ~/setup/h5bp-apache2 /etc/apache2
 
 # test the apache config file
-sudo apache2 -t -f /etc/apache2/httpd.conf
-
-sudo service apache2 restart
+sudo apache2 -t -f /etc/apache2/apache2.conf
+sudo apache2ctl start -f /etc/apache2/apache2.conf
