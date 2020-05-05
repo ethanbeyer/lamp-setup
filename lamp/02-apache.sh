@@ -41,4 +41,4 @@ sudo ln -s ~/setup/h5bp-apache2 /etc/apache2
 # test the apache config file
 sudo apache2 -t -f /etc/apache2/httpd.conf
 
-sudo apache2ctl reload -f /etc/apache2/httpd.conf
+sudo service apache2 restart
