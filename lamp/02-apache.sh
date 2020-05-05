@@ -8,12 +8,6 @@ NC='\033[0m' # No Color
 # Apache #
 # ====== #
 
-printf "\n${GREEN}Making Apache Configs Directory...${NC}\n\n\n"
-mkdir -p ~/configs/apache2
-
-printf "\n${GREEN}Copying configs from H5BP to config directory...${NC}\n\n\n"
-cp -r ~/setup/h5bp-apache2/* ~/configs/apache2
-
 printf "\n${GREEN}Configuring Apache...${NC}\n\n\n"
 sudo service apache2 stop
 
@@ -37,10 +31,10 @@ sudo a2disconf \
     serve-cgi-bin
 
 # back up the current apache2 configuration
-sudo cp -r /etc/apache2 /etc/apache2.bak
+sudo mv /etc/apache2 /etc/apache2.bak
 
 # link the html5-boilerplate configs to the old location
-sudo cp -r ~/configs/apache2 /etc/apache2
+sudo ln -s ~/setup/h5bp-apache2 /etc/apache2
 
 # set the main apache config file
 sudo apache2 -t -f /etc/apache2/httpd.conf
