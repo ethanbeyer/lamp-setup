@@ -21,7 +21,7 @@ devsync
 ./lamp-setup/scripts/00-tools.sh
 ./lamp-setup/scripts/01-linux.sh
 ./lamp-setup/scripts/02-apache.sh
-./lamp-setup/scripts/03-mysql.sh
+./lamp-setup/scripts/03-mysql.sh [root pw] [username] [username pw]
 ./lamp-setup/scripts/04-php.sh
 ```
 

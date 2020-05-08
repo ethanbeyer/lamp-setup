@@ -20,7 +20,7 @@ cp -r ~/lamp-setup/configs/h5bp-apache2/* ~/configs/h5bp-apache2/
 
 # put the mksite command in ~/bin/mksite
 mkdir -p ~/bin/mksite
-cp ~/lamp-setup/bin/mksite ~/bin/mksite
+cp ~/lamp-setup/bin/mksite ~/bin/
 chmod +x ~/bin/mksite
 
 echo "00-tools" >> ~/.handy-info

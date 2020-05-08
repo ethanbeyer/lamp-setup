@@ -31,7 +31,7 @@ sudo cp -r /etc/apache2 /etc/apache.bak
 sudo cp -r ~/configs/h5bp-apache2/h5bp /etc/apache2/h5bp
 
 # update the server root
-sed -i "s/#ServerRoot/ServerRoot/g" /etc/apache2/apache2.conf
+sudo sed -i "s/#ServerRoot/ServerRoot/g" /etc/apache2/apache2.conf
 
 # test the apache config file
 sudo apache2 -t -f /etc/apache2/apache2.conf
