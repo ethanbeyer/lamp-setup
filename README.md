@@ -15,35 +15,28 @@ git clone https://github.com/ethanbeyer/lamp-setup.git ~/lamp-setup
 Run these scripts in order to set up the lamp stack on Vagrant Ubuntu 18.04.
 
 ```sh
-vagrant up
-vagrant ssh
+vagrant up && vagrant ssh
 devsync
-./lamp-setup/scripts/00-tools.sh
-./lamp-setup/scripts/01-linux.sh
-./lamp-setup/scripts/02-apache.sh
-./lamp-setup/scripts/03-mysql.sh [root pw] [username] [username pw]
-./lamp-setup/scripts/04-php.sh
+./lamp-setup/scripts/setup.sh [databaseName]
 ```
 
-# Server Admin
-`~/lamp-setup/bin/mksite [website.com]` @todo
+Other helpful `vagrant` commands:
 
-## These will help with dev!
+```sh
 vagrant snapshot save [vm-name] NAME
 vagrant snapshot restore [vm-name] NAME
 vagrant snapshot list
 vagrant snapshot delete [vm-name] NAME
+```
 
-# Apache Configuration
+list users in mysql: `mysql> select user,host from mysql.user;`
 
-`cd ~/configs/apache2/vhosts` @todo
+# Server Admin
+`sudo mksite [website.com]`
 
-After any of these operations, run `sudo apache2ctl reload`
-
-1. Creating a new site
-
-@todo `sync` copy command on vagrant provision
-
-### Helpful Links
+# Helpful Links
 
 - https://itsfoss.com/apt-vs-apt-get-difference/
+- https://stackoverflow.com/questions/33470753/create-mysql-database-and-user-in-bash-script
+- https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-18-04
+- https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04
