@@ -6,3 +6,7 @@ sudo apache2 -t -f ~/httpd.conf
 
 sudo systemctl status
 sudo apache2ctl configtest
+
+
+# Apache Configs
+git clone https://github.com/h5bp/server-configs-apache.git ~/configs/apache2

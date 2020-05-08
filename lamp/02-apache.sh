@@ -9,7 +9,6 @@ NC='\033[0m' # No Color
 # ====== #
 
 printf "\n${GREEN}Configuring Apache...${NC}\n\n\n"
-sudo apache2ctl stop
 
 # we need these mods in order for a lot of things to function
 sudo a2enmod \
@@ -22,19 +21,14 @@ sudo a2enmod \
     include \
     proxy_fcgi
 
-# these are the configs that came pre-installed
-sudo a2disconf \
-    charset \
-    other-vhosts-access-log \
-    localized-error-pages \
-    security \
-    serve-cgi-bin
-
 # back up the current apache2 configuration
-sudo mv /etc/apache2 /etc/apache2.bak
+sudo cp -r /etc/apache2 /etc/apache.bak
 
-# link the html5-boilerplate configs to the old location
-sudo ln -s ~/setup/h5bp-apache2 /etc/apache2
+# copy the main rule files
+sudo cp -r ~/setup/h5bp-apache2/h5bp /etc/apache2/h5bp
+
+# copy the vhost templates
+sudo cp -r ~/setup/h5bp-apache2/vhosts/templates /etc/apache2/sites-available/templates
 
 # test the apache config file
 sudo apache2 -t -f /etc/apache2/apache2.conf

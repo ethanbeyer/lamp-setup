@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Making Tool Directory"
+mkdir -p ~/lamp-setup
+
+echo "Syncing Folders"
+sudo cp -r /vagrant/* ~/lamp-setup/
