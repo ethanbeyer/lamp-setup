@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
 
   $script = <<-SCRIPT
 sudo apt install git
-git clone -b dev https://github.com/ethanbeyer/lamp-setup.git ~/lamp-setup
+git clone -b dev https://github.com/ethanbeyer/lamp-setup.git /home/vagrant/lamp-setup
 cd 
 SCRIPT
 
