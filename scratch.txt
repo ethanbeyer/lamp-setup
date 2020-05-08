@@ -9,4 +9,4 @@ sudo apache2ctl configtest
 
 
 # Apache Configs
-git clone https://github.com/h5bp/server-configs-apache.git ~/configs/apache2
+

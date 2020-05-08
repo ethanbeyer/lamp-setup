@@ -2,9 +2,10 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
 
   $script = <<-SCRIPT
-sudo apt install git
+apt install git
 git clone -b dev https://github.com/ethanbeyer/lamp-setup.git /home/vagrant/lamp-setup
-cd 
+sudo chown -R vagrant:vagrant /home/vagrant/lamp-setup
+echo "export PATH=${PATH}:/vagrant/bin/devsync" >> /home/vagrant/.bashrc
 SCRIPT
 
   config.vm.provision "shell", inline: $script

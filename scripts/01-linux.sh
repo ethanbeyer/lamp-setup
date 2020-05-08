@@ -28,7 +28,7 @@ sudo apt -y full-upgrade
 
 printf "\n${GREEN}Removing unneeded apt packages...${NC}\n"
 sleep 3
-sudo apt autoremove
+sudo apt -y autoremove
 
 printf "\n${GREEN}Installing LAMP stack...${NC}\n"
 sleep 5
