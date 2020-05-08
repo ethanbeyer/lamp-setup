@@ -1,7 +1,0 @@
-#!/bin/bash
-#
-# This is to keep the codebase for this library in sync without a billion
-# git pulls
-
-echo "Syncing Folders"
-cp -r /vagrant/* /home/vagrant/lamp-setup/

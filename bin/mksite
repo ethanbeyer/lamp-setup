@@ -18,7 +18,7 @@ echo "Making ${BASENAME} directory in /var/www"
 mkdir -p /var/www/${BASENAME}/public_html
 
 echo "Copying default template"
-cp ~/configs/h5bp-apache2/vhosts/template/example.com.conf ${SA_DIR}/${BASENAME}.conf
+cp ~/configs/h5bp-apache2/vhosts/templates/example.com.conf ${SA_DIR}/${BASENAME}.conf
 
 echo "Modifying default template"
 sed -i "s/example.com/$BASENAME/g" ${SA_DIR}/${BASENAME}.conf
