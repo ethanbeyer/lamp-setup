@@ -11,3 +11,5 @@ NC='\033[0m' # No Color
 printf "\n${GREEN}Configuring PHP...${NC}\n\n\n"
 sudo phpenmod mbstring
 sudo systemctl restart apache2
+
+echo "04-php" >> ~/.handy-info

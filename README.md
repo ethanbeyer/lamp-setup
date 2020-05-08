@@ -1,7 +1,3 @@
-# Dev
-
-`vagrant up`
-
 # Setting Up the LAMP Server
 
 Run these scripts in order to set up the lamp stack on AWS Lightsail.
@@ -12,6 +8,21 @@ After SSHing into the box, run these commands from the home directory.
 sudo apt install git
 git clone https://github.com/ethanbeyer/lamp-setup.git ~/lamp-setup
 
+```
+
+# Dev Setup
+
+Run these scripts in order to set up the lamp stack on Vagrant Ubuntu 18.04.
+
+```sh
+vagrant up
+vagrant ssh
+devsync
+./lamp-setup/scripts/00-tools.sh
+./lamp-setup/scripts/01-linux.sh
+./lamp-setup/scripts/02-apache.sh
+./lamp-setup/scripts/03-mysql.sh
+./lamp-setup/scripts/04-php.sh
 ```
 
 # Server Admin

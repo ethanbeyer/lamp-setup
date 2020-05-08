@@ -10,12 +10,17 @@ NC='\033[0m' # No Color
 
 printf "\n${GREEN}Installing Other Tools...${NC}\n"
 
-# get the basis for all the stuff
-git clone https://github.com/h5bp/server-configs-apache.git ~/configs/h5bp-apache2
-cd ~/configs/h5bp-apache2
-ls -la
-sleep 5
+touch ~/.handy-info
 
+# get h5bp repo
+git clone https://github.com/h5bp/server-configs-apache.git ~/configs/h5bp-apache2
+
+# merge the overrides from this repo into h5bp
 cp -r ~/lamp-setup/configs/h5bp-apache2/* ~/configs/h5bp-apache2/
-ls -la
-sleep 5
+
+# put the mksite command in ~/bin/mksite
+mkdir -p ~/bin/mksite
+cp ~/lamp-setup/bin/mksite ~/bin/mksite
+chmod +x ~/bin/mksite
+
+echo "00-tools" >> ~/.handy-info

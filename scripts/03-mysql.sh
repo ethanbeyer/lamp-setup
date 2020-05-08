@@ -51,3 +51,5 @@ rm $MYSQL_INIT_FILE
 
 printf "\n${GREEN}Starting MySQL...${NC}\n\n\n"
 sudo service mysql start
+
+echo "03-mysql" >> ~/.handy-info

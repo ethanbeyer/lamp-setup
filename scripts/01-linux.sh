@@ -63,4 +63,4 @@ sudo apt install -y \
 
 printf "\n${GREEN}Done!${NC}\n\n\n"
 
-touch ~/.handy-info
+echo "01-linux" >> ~/.handy-info

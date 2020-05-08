@@ -21,15 +21,20 @@ sudo a2enmod \
     include \
     proxy_fcgi
 
+# apply those settings
+sudo apache2ctl restart
+
 # back up the current apache2 configuration
 sudo cp -r /etc/apache2 /etc/apache.bak
 
 # copy the main rule files
-sudo cp -r ~/setup/h5bp-apache2/h5bp /etc/apache2/h5bp
+sudo cp -r ~/configs/h5bp-apache2/h5bp /etc/apache2/h5bp
 
-# copy the vhost templates
-sudo cp -r ~/setup/h5bp-apache2/vhosts/templates /etc/apache2/sites-available/templates
+# update the server root
+sed -i "s/#ServerRoot/ServerRoot/g" /etc/apache2/apache2.conf
 
 # test the apache config file
 sudo apache2 -t -f /etc/apache2/apache2.conf
-sudo apache2ctl start -f /etc/apache2/apache2.conf
+sudo apache2ctl start
+
+echo "02-apache" >> ~/.handy-info
