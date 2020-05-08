@@ -17,5 +17,5 @@ ls -la
 sleep 5
 
 cp -r ~/lamp-setup/configs/h5bp-apache2/* ~/configs/h5bp-apache2/
-ls -lamp
+ls -la
 sleep 5
